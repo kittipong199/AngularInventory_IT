@@ -1,4 +1,8 @@
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { response } from 'express';
+import { json } from 'sequelize';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+
+  }
 
   ngOnInit(): void {
+
+
+
+
   }
 
 }

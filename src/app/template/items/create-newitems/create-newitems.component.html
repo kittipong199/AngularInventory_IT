@@ -4,30 +4,44 @@
 
   </div>
 
-  <div class="card border-dark mb-3" style="max-width: 30rem;">
-    <form class="p-4">
+
+   <form [formGroup]="form"  class="p-4" id="itemForm" name="itemForm">
+
+    <div class="mb-4 ">
+      <label for="exampleInputEmail1" class="form-label">Project_name</label>
+      <input type="text" formControlName="project_name" class="form-control"   aria-describedby="emailHelp">
+
+    </div>
+
       <div class="mb-4 ">
-        <label for="exampleInputEmail1" class="form-label">Hardware Name</label>
-        <input type="email" class="form-control" id="HardwareName" aria-describedby="emailHelp">
+        <label for="exampleInputEmail1" class="form-label">Seriald Number</label>
+        <input type="text" formControlName="serial_numbar" class="form-control"   aria-describedby="emailHelp">
 
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Hardware Brand</label>
-        <input type="password" class="form-control" id="HardwareBrand">
+        <input type="text" formControlName="brand_name" class="form-control"  >
       </div>
 
-     
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Hardware Type</label>
+        <input type="text" formControlName="type_name" class="form-control"  >
+      </div>
+
+
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Hardware FixAsset</label>
-        <input type="password" class="form-control" id="HardwareFixAsset">
+        <input type="text" formControlName="fixasset" class="form-control" >
       </div>
 
 
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Addition details/Model</label>
-        <textarea class="form-control" id="AdditionDetails" rows="3"></textarea>
+        <textarea class="form-control" formControlName="item_details"   rows="3"></textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary">Create Item</button>
+      <button type="submit" [disabled]="form.invalid" (click)="submitForm()" class="btn btn-primary">Create Item</button>
     </form>
-  </div>
+
+
+    <p>Form value: {{ form.value | json }}</p>

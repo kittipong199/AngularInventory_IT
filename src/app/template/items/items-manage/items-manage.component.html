@@ -12,12 +12,12 @@
   </div>
 
 <h2>Item List</h2>
-<div class="table-responsive">
+<div class="table-responsive" >
   <table class="table table-striped table-sm">
     <thead>
       <tr>
         <th scope="col">Project</th>
-        <th scope="col">HW ID</th>
+        <th scope="col">Serial_NO</th>
         <th scope="col">Hardware</th>
         <th scope="col">Brand</th>
         <th scope="col">Hardware Details</th>
@@ -25,12 +25,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>SE-Probe</td>
-        <td>001</td>
-        <td>RAM</td>
-        <td>BLACKBERRY</td>
-        <td>DDR2 2GB</td>
+
+      <tr *ngFor = "let i of ItemAllList">
+        <td>{{i.project_name}}</td>
+        <td>{{i.serial_no}}</td>
+        <td>{{i.type_name}}</td>
+        <td>{{i.brand_name}}</td>
+        <td>{{i.item_details}}</td>
 
         <td>
           <button  type="button" class="btn btn-sm btn-outline-secondary">
@@ -38,68 +39,7 @@
           </button>
         </td>
       </tr>
-      <tr>
-        <td>SE-Probe</td>
-        <td>002</td>
-        <td>CPU</td>
-        <td>Intel </td>
-        <td>Intel I5-10600K</td>
-
-        <td>
-          <button  type="button" class="btn btn-sm btn-outline-secondary">
-            <a href="newitems" class="nav-link text-black">Edit Item</a>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>SE-Probe</td>
-        <td>003</td>
-        <td>Card LAN </td>
-        <td>TP-link</td>
-        <td>TP-link PCI</td>
-
-        <td>
-          <button  type="button" class="btn btn-sm btn-outline-secondary">
-            <a href="newitems" class="nav-link text-black">Edit Item</a>
-          </button>
-        </td>
-      </tr><tr>
-        <td>TUENSTILE</td>
-        <td>001</td>
-        <td>HDD</td>
-        <td>WD</td>
-        <td>500GB</td>
-
-        <td>
-          <button  type="button" class="btn btn-sm btn-outline-secondary">
-            <a href="newitems" class="nav-link text-black">Edit Item</a>
-          </button>
-        </td>
-      </tr><tr>
-        <td>TUENSTILE</td>
-        <td>002</td>
-        <td>RAM</td>
-        <td>CORSAIR </td>
-        <td>DDR4 4GB</td>
-
-        <td>
-          <button  type="button" class="btn btn-sm btn-outline-secondary">
-            <a href="newitems" class="nav-link text-black">Edit Item</a>
-          </button>
-        </td>
-      </tr><tr>
-        <td>TUENSTILE</td>
-        <td>003</td>
-        <td>SSD M.2</td>
-        <td>SAMSUNG</td>
-        <td>250GB</td>
-
-        <td>
-          <button  type="button" class="btn btn-sm btn-outline-secondary">
-            <a href="newitems" class="nav-link text-black">Edit Item</a>
-          </button>
-        </td>
 
 
-      </tr>
+
 

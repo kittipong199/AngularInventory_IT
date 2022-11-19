@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HomeComponent } from './template/home/home.component';
 import { NavberComponent } from './template/navber/navber.component';
@@ -15,6 +16,18 @@ import { ItemsManageComponent } from './template/items/items-manage/items-manage
 import { CreateNewitemsComponent } from './template/items/create-newitems/create-newitems.component';
 import { CreateNewpcComponent } from './template/pc/create-newpc/create-newpc.component';
 import { EditPcComponent } from './template/pc/edit-pc/edit-pc.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { MatSliderModule } from '@angular/material/slider';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+
+import { ItemsService } from './service/items.service';
+
+
+import { ReactiveFormsModule,NgForm,FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,9 +47,18 @@ import { EditPcComponent } from './template/pc/edit-pc/edit-pc.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    FormsModule,
+
+
+
   ],
-  providers: [],
+  providers: [ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
