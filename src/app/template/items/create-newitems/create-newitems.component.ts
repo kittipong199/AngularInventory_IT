@@ -1,3 +1,4 @@
+
 import { HttpClient } from '@angular/common/http';
 
 import { Component, OnInit } from '@angular/core';
@@ -7,7 +8,7 @@ import { ItemsService } from 'src/app/service/items.service';
 
 //model
 
-import { ItemAll,postItem } from 'src/app/models/items.model';
+import { ItemAll,postItem, getProject,getBrand,getType } from 'src/app/models/items.model';
 
 
 import {NgForm,FormGroup, FormControl, FormBuilder,Validators} from '@angular/forms';
@@ -35,7 +36,7 @@ export class CreateNewitemsComponent implements OnInit {
     // );
 
   }
-
+  selectedValue:any;
   form = new FormGroup({
 
     'brand_name':new FormControl('',Validators.required),
@@ -46,16 +47,28 @@ export class CreateNewitemsComponent implements OnInit {
     'project_name':new FormControl('',Validators.required),
    });
 
-  //  ItemAllList: ItemAll[]= [];
+  projectlist: getProject[]= [];
   // addItem: postItem[] = [];
 
 
   ngOnInit(): void {
 
-
+    this.getProjects();
    }
 
+   getProjects(){
+    this.services.getProject().subscribe((data: getProject[])=> {
+      console.log(data, "res ==>");
+      this.projectlist = data;
+    });
+  }
+
+  changeProject(){
+
+  }
+
    submitForm(){
+
     if(this.form.valid){
     alert(JSON.stringify(this.form.value));
     this.services.createItem(this.form.value).subscribe((res)=>{

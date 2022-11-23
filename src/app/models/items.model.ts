@@ -1,5 +1,5 @@
 export interface ItemAll {
-
+// get  Itemcollection Table
   item_id: number;
   brand_name: string;
   type_name: string;
@@ -9,8 +9,10 @@ export interface ItemAll {
   project_name:string;
 }
 
-export interface postItem{
 
+
+export interface postItem{
+    // Post  Itemcollection Table
   brand_name: string;
   type_name: string;
   serial_numbar:string;
@@ -18,5 +20,29 @@ export interface postItem{
   fixasset:string;
   project_name:string;
 }
+
+
+// get data Project table
+export interface getProject {
+
+  project_id: number;
+  project_name: string;
+
+}
+// get data Brand table
+export interface getBrand {
+
+  brand_id: number;
+  brand_name: string;
+
+}
+// get data type table
+export interface getType {
+
+  type_id: number;
+  type_name: string;
+
+}
+
 
 
