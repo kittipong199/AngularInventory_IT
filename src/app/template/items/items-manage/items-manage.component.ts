@@ -1,5 +1,5 @@
 
-import { ItemAll, } from 'src/app/models/items.model';
+import { getTypeCount, ItemAll, } from 'src/app/models/items.model';
 import { Component, OnInit } from '@angular/core';
 
 import { ItemsService } from 'src/app/service/items.service';
@@ -22,9 +22,14 @@ export class ItemsManageComponent implements OnInit {
   constructor(
     private ApiService:ItemsService) { }
 
-  ItemAllList: ItemAll[]= [];
+  ItemAllList: getTypeCount[]= [];
 
+    public CountsType = 0;
 
+    countter(){
+      this.ItemAllList;
+
+    }
 
   ngOnInit(): void {
 
@@ -34,13 +39,19 @@ export class ItemsManageComponent implements OnInit {
 
    // get all data from item table
    getData(){
-    this.ApiService.getAllItem().subscribe((data: ItemAll[])=> {
+    this.ApiService.getAllItem().subscribe((data: getTypeCount[])=> {
       console.log(data, "res ==>");
+      console.log(this.ItemAllList);
       this.ItemAllList = data;
     });
 
    }
 
+   deleteID(id:any){
+    this.ApiService.Deleteitem(id).subscribe((res)=>{
+        console.log(res, 'delete == >');
+    });
+   }
 
   }
 

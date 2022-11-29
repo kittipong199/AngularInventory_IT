@@ -3,18 +3,12 @@
     <h1 class="h2">New Item </h1>
 
   </div>
-
-
-
    <form [formGroup]="form"  class="p-4" id="itemForm" name="itemForm">
-
     <div class="mb-4 ">
       <label for="exampleInputEmail1" class="form-label">Project_name</label>
+      <select class="form-select form-select-sm" formControlName="project_name" >
 
-      <select class="form-select form-select-sm" formControlName="project_name" (change)="changeProject()">
-        <option selected>Project Name</option>
-        <option  *ngFor = "let p of projectlist" value="{{p.project_id}}" formControlName="project_name">{{p.project_name}}</option>
-
+        <option  *ngFor = "let p of projectlist" [ngValue]="p.project_name">{{p.project_name}}</option>
       </select>
     </div>
 
@@ -24,33 +18,37 @@
 
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Hardware Brand</label>
-        <input type="text" formControlName="brand_name" class="form-control"  >
+        <label for="exampleInputEmail1" class="form-label">Hardware Brand</label>
+        <select class="form-select form-select-sm" formControlName="brand_name" >
 
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Hardware Type</label>
-        <input type="text" formControlName="type_name" class="form-control"  >
+          <option  *ngFor = "let b of brandlist" [ngValue]="b.brand_name">{{b.brand_name}}</option>
+        </select>
       </div>
 
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Hardware type</label>
+        <select class="form-select form-select-sm"  formControlName="type_name">
 
+          <option  *ngFor = "let t of typelist" [ngValue]="t.type_name">{{t.type_name}}</option>
+        </select>
+
+      </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Hardware FixAsset</label>
         <input type="text" formControlName="fixasset" class="form-control" >
       </div>
-
-
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Addition details/Model</label>
         <textarea class="form-control" formControlName="item_details"   rows="3"></textarea>
       </div>
-
       <button type="submit" [disabled]="form.invalid" (click)="submitForm()" class="btn btn-primary">Create Item</button>
 
 
+    </form>
 
-    <p>Form value: {{ form.value | json }}</p>
+    <!-- <p>Form value: {{ form.value | json }}</p> -->
 
-    </div>
+
 
 
 

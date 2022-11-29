@@ -17,25 +17,30 @@
     <thead>
       <tr>
         <th scope="col">Project</th>
-        <th scope="col">Serial_NO</th>
-        <th scope="col">Hardware</th>
+        <th scope="col">Type</th>
         <th scope="col">Brand</th>
-        <th scope="col">Hardware Details</th>
+        <th scope="col">Unit</th>
         <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
 
       <tr *ngFor = "let i of ItemAllList">
         <td>{{i.project_name}}</td>
-        <td>{{i.serial_no}}</td>
         <td>{{i.type_name}}</td>
         <td>{{i.brand_name}}</td>
-        <td>{{i.item_details}}</td>
+        <td>{{i.counts}}</td>
 
         <td>
           <button  type="button" class="btn btn-sm btn-outline-secondary">
             <a href="newitems" class="nav-link text-black">Edit Item</a>
+          </button>
+        </td>
+
+        <td>
+          <button  type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteID(i.item_id)">
+            <a  class="nav-link text-black">Delete Item</a>
           </button>
         </td>
       </tr>

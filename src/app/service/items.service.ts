@@ -20,7 +20,16 @@ export class ItemsService {
 
    getbrandurl = 'http://127.0.0.1:3000/getbrand ';
    gettypeurl = 'http://127.0.0.1:3000/gettype ';
+
+   get_type_Counturl = 'http://127.0.0.1:3000/gettype/count_type ';
    getprojecturl = 'http://127.0.0.1:3000/getproject ';
+
+
+   patchurl =  'http://127.0.0.1:3000/update/:id';
+
+
+
+   deleteItem = 'http://127.0.0.1:3000/delete/:id';
   // get API สำหรับดึงข้อมูล Items List
 
   // getItemsList() {
@@ -29,7 +38,7 @@ export class ItemsService {
   // get all Itemcollection Table
    getAllItem(): Observable<any>{
     return this.http.get(`${this.geturl}`);
-}
+  }
     // Post  Itemcollection Table
   createItem(data:any): Observable<any>{
 
@@ -39,6 +48,10 @@ export class ItemsService {
 
   }
 
+  EditProduct(id: number, body: any) {
+
+    return this.http.put(`${this.patchurl}` + id, body);
+  }
 
 
 
@@ -52,10 +65,24 @@ export class ItemsService {
   return this.http.get(`${this.gettypeurl}`);
 }
 
+ // get Count Typr Table
+
+
+ getTypeCount(): Observable<any>{
+  return this.http.get(`${this.get_type_Counturl}`);
+}
+
   // get all Project Table
   getProject(): Observable<any>{
     return this.http.get(`${this.getprojecturl}`);
 }
 
+
+
+Deleteitem(id:any): Observable<any>{
+
+  let ids = id;
+  return this.http.delete(`${this.deleteItem}/${ids}`);
+}
 
 }

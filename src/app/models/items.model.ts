@@ -44,5 +44,17 @@ export interface getType {
 
 }
 
+/// get count type 
+export interface getTypeCount {
+
+  item_id: number;
+  brand_name:string;
+  type_name: string;
+  project_name:string;
+  counts: any;
+
+}
+
+
 
 

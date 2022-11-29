@@ -21,59 +21,65 @@ import {NgForm,FormGroup, FormControl, FormBuilder,Validators} from '@angular/fo
 })
 export class CreateNewitemsComponent implements OnInit {
 
-  // form: FormGroup;
-
+  //form: FormGroup;
+  projectlist: getProject[]= [];
+  brandlist: getBrand[]= [];
+  typelist: getType[]= [];
   constructor(private fb: FormBuilder, private http: HttpClient, private services:ItemsService) {
-    // this.form = this.fb.group(
-    //   {
-    //     serial_no: [''],
-    //     brand_name: [''],
-    //     type_name: [''],
-    //     fixasset: [''],
-    //     details: ['']
-    //      project_name
-    //   } private fb: FormBuilder,
-    // );
+
 
   }
-  selectedValue:any;
-  form = new FormGroup({
 
+
+  form = new FormGroup({
+    'project_name':new FormControl('',Validators.required),
+    'serial_numbar':new FormControl('',Validators.required),
     'brand_name':new FormControl('',Validators.required),
     'type_name':new FormControl('',Validators.required),
-    'serial_numbar':new FormControl('',Validators.required),
-    'fixasset':new FormControl('',Validators.required),
-    'item_details':new FormControl('',Validators.required),
-    'project_name':new FormControl('',Validators.required),
+    'fixasset':new FormControl('0',Validators.required),
+    'item_details':new FormControl('',Validators.required)
    });
-
-  projectlist: getProject[]= [];
   // addItem: postItem[] = [];
 
 
   ngOnInit(): void {
 
     this.getProjects();
-   }
+    this.getBrands();
+    this.getTypes();
 
+   }
+   //
    getProjects(){
     this.services.getProject().subscribe((data: getProject[])=> {
-      console.log(data, "res ==>");
+      console.log(data, "res ==> project : ");
       this.projectlist = data;
     });
   }
-
-  changeProject(){
-
+  getBrands(){
+    this.services.getBrand().subscribe((data: getBrand[])=> {
+      console.log(data, "res ==> brandlist : ");
+      this.brandlist = data;
+    });
   }
 
-   submitForm(){
+  getTypes(){
+    this.services.getType().subscribe((data: getType[])=> {
+      console.log(data, "res ==> typelist : ");
+      this.typelist = data;
+    });
+  }
+
+  submitForm(){
 
     if(this.form.valid){
-    alert(JSON.stringify(this.form.value));
-    this.services.createItem(this.form.value).subscribe((res)=>{
+      alert(JSON.stringify(this.form.value));
+      this.services.createItem(this.form.value).subscribe((res)=>{
       console.log(res, 'res==>');
+      // หลังจาก ส่งdata แล้ว จะ reset ใน input ทั้งหมด 
+      this.form.reset();
     });
+
   }
 
    }
@@ -81,40 +87,6 @@ export class CreateNewitemsComponent implements OnInit {
 
 
 
-  //  itemSubmit(){
-  //     console.log(this.itemForm.value);
-
-  //  }
-
-
-  //  addNewProduct(product: any){
-
-
-  //   console.log(this.productNewData.value);
-  //   this.ps.addProduct(product);
-
-  // }
-  //  onSubmit(itemForm: NgForm){
-  //   // ดึง data value from ngModule in html
-
-  //   // const values = itemForm.value;
-  //   console.log(itemForm.value);
-  //   // alert(value);
-
-  //  }
-
-   // get all data from item table
-    // getData(){
-    //  this.ApiService.getAllItem().subscribe((data: ItemAll[])=> {
-    //    console.log(data, "res ==>");
-    //    this.ItemAllList = data;
-    //  });
-
-    // }
-
-  //  createNewItem(){
-  //   this.Newitemform = this.
-  //  }
 
 
 
