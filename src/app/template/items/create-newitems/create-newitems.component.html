@@ -5,7 +5,7 @@
   </div>
    <form [formGroup]="form"  class="p-4" id="itemForm" name="itemForm">
     <div class="mb-4 ">
-      <label for="exampleInputEmail1" class="form-label">Project_name</label>
+      <label for="exampleInputEmail1" class="form-label">Project Name</label>
       <select class="form-select form-select-sm" formControlName="project_name" >
 
         <option  *ngFor = "let p of projectlist" [ngValue]="p.project_name">{{p.project_name}}</option>
@@ -13,7 +13,7 @@
     </div>
 
       <div class="mb-4 ">
-        <label for="exampleInputEmail1" class="form-label">Seriald Number</label>
+        <label for="exampleInputEmail1" class="form-label">Serial Number</label>
         <input type="text" formControlName="serial_numbar" class="form-control"   aria-describedby="emailHelp">
 
       </div>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Hardware type</label>
+        <label for="exampleInputEmail1" class="form-label">Hardware Type</label>
         <select class="form-select form-select-sm"  formControlName="type_name">
 
           <option  *ngFor = "let t of typelist" [ngValue]="t.type_name">{{t.type_name}}</option>
@@ -34,11 +34,11 @@
 
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Hardware FixAsset</label>
+        <label for="exampleInputPassword1" class="form-label">Hardware Fix Asset</label>
         <input type="text" formControlName="fixasset" class="form-control" >
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Addition details/Model</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Addition Details/Model</label>
         <textarea class="form-control" formControlName="item_details"   rows="3"></textarea>
       </div>
       <button type="submit" [disabled]="form.invalid" (click)="submitForm()" class="btn btn-primary">Create Item</button>

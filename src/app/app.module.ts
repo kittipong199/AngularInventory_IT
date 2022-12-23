@@ -25,9 +25,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
 import { ItemsService } from './service/items.service';
-
+import { PcService } from './service/pc.service';
 
 import { ReactiveFormsModule,NgForm,FormsModule } from '@angular/forms';
+import { ItemDetailsComponent } from './template/items/item-details/item-details.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { ReactiveFormsModule,NgForm,FormsModule } from '@angular/forms';
     ItemsManageComponent,
     CreateNewitemsComponent,
     CreateNewpcComponent,
-    EditPcComponent
+    EditPcComponent,
+    ItemDetailsComponent
 
   ],
   imports: [
@@ -58,7 +61,7 @@ import { ReactiveFormsModule,NgForm,FormsModule } from '@angular/forms';
 
 
   ],
-  providers: [ItemsService],
+  providers: [ItemsService,PcService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

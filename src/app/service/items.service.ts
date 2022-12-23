@@ -14,22 +14,24 @@ export class ItemsService {
   // baseApiUrl:  string = environment.baseApiUrl;
   constructor(private http: HttpClient, private router: Router) { }
   // connect to backend
-   geturl = 'http://127.0.0.1:3000/getall ';
-
-   posturl =  'http://127.0.0.1:3000/create';
-
-   getbrandurl = 'http://127.0.0.1:3000/getbrand ';
-   gettypeurl = 'http://127.0.0.1:3000/gettype ';
-
-   get_type_Counturl = 'http://127.0.0.1:3000/gettype/count_type ';
-   getprojecturl = 'http://127.0.0.1:3000/getproject ';
-
-
-   patchurl =  'http://127.0.0.1:3000/update/:id';
+   geturl = 'http://127.0.0.1:3000/get/all ';
 
 
 
-   deleteItem = 'http://127.0.0.1:3000/delete/:id';
+   getbrandurl = 'http://127.0.0.1:3000/get/brand ';
+   gettypeurl = 'http://127.0.0.1:3000/get/type ';
+
+   get_type_Counturl = 'http://127.0.0.1:3000/get/type/count_type';
+   getprojecturl = 'http://127.0.0.1:3000/get/project ';
+
+   getstatus = 'http://127.0.0.1:3000/get/status ';
+
+
+
+   posturl =  'http://127.0.0.1:3000/item/create';
+   patchurl =  'http://127.0.0.1:3000/item/update/:id';
+
+   deleteItem = 'http://127.0.0.1:3000/item/delete/:id';
   // get API สำหรับดึงข้อมูล Items List
 
   // getItemsList() {
@@ -77,9 +79,13 @@ export class ItemsService {
     return this.http.get(`${this.getprojecturl}`);
 }
 
+ // get all Brand Table
+ getStatus(): Observable<any>{
+  return this.http.get(`${this.getstatus}`);
+}
 
 
-Deleteitem(id:any): Observable<any>{
+Deleteitem(id:number): Observable<any>{
 
   let ids = id;
   return this.http.delete(`${this.deleteItem}/${ids}`);

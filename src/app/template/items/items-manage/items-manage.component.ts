@@ -1,6 +1,6 @@
 
-import { getTypeCount, ItemAll, } from 'src/app/models/items.model';
-import { Component, OnInit } from '@angular/core';
+import { getTypeCount, ItemAll,getType } from 'src/app/models/items.model';
+import { Component, OnInit,Input,Output } from '@angular/core';
 
 import { ItemsService } from 'src/app/service/items.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -20,39 +20,55 @@ export class ItemsManageComponent implements OnInit {
 
 
   constructor(
-    private ApiService:ItemsService) { }
+    public ApiService:ItemsService) { }
 
-  ItemAllList: getTypeCount[]= [];
+  itemcount: getTypeCount[]= [];
+  type:getType[]=[];
+  ItemAllList: ItemAll[]=[];
 
-    public CountsType = 0;
+   typeChild = this.itemcount;
+    data_type: any;
+     public CountsType = 0;
 
-    countter(){
-      this.ItemAllList;
+     countter(){
+       this.itemcount;
 
-    }
+     }
 
   ngOnInit(): void {
 
     this.getData();
+    this.sendtype;
+
    }
 
 
    // get all data from item table
    getData(){
-    this.ApiService.getAllItem().subscribe((data: getTypeCount[])=> {
+    this.ApiService.getTypeCount().subscribe((data: getTypeCount[])=> {
       console.log(data, "res ==>");
-      console.log(this.ItemAllList);
-      this.ItemAllList = data;
+      console.log(this.itemcount);
+      this.itemcount = data;
     });
 
    }
 
-   deleteID(id:any){
-    this.ApiService.Deleteitem(id).subscribe((res)=>{
-        console.log(res, 'delete == >');
+
+
+   deleteID(id:number){
+    this.ApiService.Deleteitem(id).subscribe((data: ItemAll[])=>{
+        console.log(data, 'delete == >');
+        this.ItemAllList = data;
     });
    }
 
+   sendtype(type_name:any,brand_name:any){
+    //this.ApiService.getAllItem = this.ApiService.getAllItem;
+     this.typeChild = this.itemcount;
+     this.data_type = [type_name,brand_name];
+     console.log(this.data_type);
+    // return this.data_type;
+   }
   }
 
 

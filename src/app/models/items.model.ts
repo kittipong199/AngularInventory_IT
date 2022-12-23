@@ -44,7 +44,7 @@ export interface getType {
 
 }
 
-/// get count type 
+/// get count type
 export interface getTypeCount {
 
   item_id: number;
@@ -53,6 +53,12 @@ export interface getTypeCount {
   project_name:string;
   counts: any;
 
+}
+
+export interface getStatus{
+
+  status_id: number;
+  status_name: string;
 }
 
 
