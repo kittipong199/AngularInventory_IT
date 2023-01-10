@@ -48,11 +48,26 @@ export interface getType {
 export interface getTypeCount {
 
   item_id: number;
+  type_id: number;
+  brand_id: number;
   brand_name:string;
   type_name: string;
   project_name:string;
   counts: any;
 
+}
+
+/// get Deatails  type
+export interface getItmeDetails {
+
+  item_id: number;
+  type_id: number;
+  brand_id: number;
+  brand_name:string;
+  type_name: string;
+  project_name:string;
+  item_details:string;
+  serial_no:string;
 }
 
 export interface getStatus{

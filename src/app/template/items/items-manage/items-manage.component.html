@@ -20,6 +20,7 @@
         <th scope="col">Type</th>
         <th scope="col">Brand</th>
         <th scope="col">Unit</th>
+        <th scope="col">View</th>
         <th scope="col">Edit</th>
         <!-- <th scope="col">Delete</th> -->
       </tr>
@@ -28,15 +29,25 @@
 
       <tr *ngFor = "let i of itemcount">
         <td>{{i.project_name}}</td>
-        <td><a (click)="sendtype(i.type_name,i.brand_name)" href="itemdetails">{{i.type_name}}</a></td>
+        <!--
+          ส่วนนนี้ ครับ ที่ต้องส่ง id ออกไป
+         -->
+        <td><a  routerLink="/itemdetails/{{i.type_id}}/{{i.brand_id}}">{{i.type_name}}</a></td>
+
+        <!-- <td><a  routerLink="/itemdetails?typeId=${i.type_name}&barndId=${i.brand_name}">{{i.type_name}}</a></td> -->
         <td>{{i.brand_name}}</td>
         <td>{{i.counts}}</td>
-
+        <td>
+          <button  type="button" class="btn btn-sm btn-outline-secondary">
+            <a  class="nav-link text-black">ViewDetails</a>
+          </button>
+        </td>
         <td>
           <button  type="button" class="btn btn-sm btn-outline-secondary">
             <a href="newitems" class="nav-link text-black">Edit Item</a>
           </button>
         </td>
+
 
         <!-- <td>
           <button  type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteID(i.item_id)">

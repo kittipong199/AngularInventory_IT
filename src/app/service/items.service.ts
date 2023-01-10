@@ -22,6 +22,13 @@ export class ItemsService {
    gettypeurl = 'http://127.0.0.1:3000/get/type ';
 
    get_type_Counturl = 'http://127.0.0.1:3000/get/type/count_type';
+
+
+   // get typy ID and Brand Id for show next Details Component
+   get_type_brand_byid = 'http://127.0.0.1:3000/get/:type_id/:brand_id';
+
+  ///////////////////******************************* */
+
    getprojecturl = 'http://127.0.0.1:3000/get/project ';
 
    getstatus = 'http://127.0.0.1:3000/get/status ';
@@ -50,11 +57,18 @@ export class ItemsService {
 
   }
 
-  EditProduct(id: number, body: any) {
+  EditProduct(id: any, body: any) {
 
     return this.http.put(`${this.patchurl}` + id, body);
   }
 
+
+  getDetailsItme(type_id:any,brand_id:any): Observable<any>{
+
+
+    // let brand_ids = brand_id;
+    return this.http.get(`${this.get_type_brand_byid}/${type_id}/${brand_id}`);
+  }
 
 
 
