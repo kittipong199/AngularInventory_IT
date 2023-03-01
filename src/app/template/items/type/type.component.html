@@ -1,0 +1,32 @@
+
+ <body class="text-center">
+
+  <main class="form-signin">
+  <form [formGroup]="form" id="typeForm" name="typeForm">
+
+    <img src="assets/image/LogoAnalog.png" style="width: 150px; height: 50px;"><br>
+    <br>
+    <h1 class="h3 mb-3 fw-normal">New Type</h1>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="type_name" formControlName="type_name" >
+      <label for="floatingInput">Type Name</label>
+    </div>
+    <br>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="remarks"  formControlName="remarks" >
+      <label for="floatingPassword">Remarls</label>
+    </div>
+
+    <div class="checkbox mb-3">
+
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit"  (click)="onAdd()">Create_Type</button>
+
+  </form>
+
+
+</main>
+
+
+</body>

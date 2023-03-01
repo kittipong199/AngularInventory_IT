@@ -49,7 +49,8 @@ export interface StrorageDetails {
 
 
 export interface PcList {
-
+  pc_id:number;
+  project_name: String;
   pc_hostname: String;
   pc_details: String;
   pc_fixasset: String;
@@ -60,6 +61,12 @@ export interface PcList {
   ram_slot: String;
   pc_size: String;
   lan_card: String;
+  cpu_details: String;
+  mainboard_details: String;
+  powersupply_details: String;
+  ram_details: String;
+  storage_details: String;
+  
 
 
 }

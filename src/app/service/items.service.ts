@@ -14,35 +14,39 @@ export class ItemsService {
   // baseApiUrl:  string = environment.baseApiUrl;
   constructor(private http: HttpClient, private router: Router) { }
   // connect to backend
-   geturl = 'http://127.0.0.1:3000/get/all ';
+   geturl = 'http://chbwapp001:5000/get/all ';
 
 
 
-   getbrandurl = 'http://127.0.0.1:3000/get/brand ';
-   gettypeurl = 'http://127.0.0.1:3000/get/type ';
+   getbrandurl = 'http://chbwapp001:5000/get/brand ';
+   gettypeurl = 'http://chbwapp001:5000/get/type ';
 
-   get_type_Counturl = 'http://127.0.0.1:3000/get/type/count_type';
+   get_type_Counturl = 'http://chbwapp001:5000/get/type/count_type';
 
 
    // get typy ID and Brand Id for show next Details Component
-   get_type_brand_byid = 'http://127.0.0.1:3000/get/:type_id/:brand_id';
+   get_type_brand_byid = 'http://chbwapp001:5000/get/';
 
   ///////////////////******************************* */
 
-   getprojecturl = 'http://127.0.0.1:3000/get/project ';
+   getprojecturl = 'http://chbwapp001:5000/get/project ';
 
-   getstatus = 'http://127.0.0.1:3000/get/status ';
+   getstatus = 'http://chbwapp001:5000/get/status ';
 
 
 
-   posturl =  'http://127.0.0.1:3000/item/create';
-   patchurl =  'http://127.0.0.1:3000/item/update/:id';
+   posturl =  'http://chbwapp001:5000/item/create';
 
-   deleteItem = 'http://127.0.0.1:3000/item/delete/:id';
+   patchurl =  'http://chbwapp001:5000/item/update/:id';
+
+   posttypeurl =  'http://127.0.0.1:5000/item/create/type';
+   postbrandurl =  'http://localhost:5000/item/create/brand';
+
+   deleteItem = 'http://chbwapp001:5000/item/delete/:id';
   // get API สำหรับดึงข้อมูล Items List
 
   // getItemsList() {
-  //   return this.http.get<ItemAll[]>('http://127.0.0.1:3000/read');
+  //   return this.http.get<ItemAll[]>('http://chbwapp001:5000/read');
   // }
   // get all Itemcollection Table
    getAllItem(): Observable<any>{
@@ -56,6 +60,21 @@ export class ItemsService {
     return this.http.post(`${this.posturl}`,data);
 
   }
+
+  createType(data:any): Observable<any>{
+
+    console.log(data,'createapi=>');
+
+    return this.http.post(`${this.posttypeurl}`,data);
+
+  }
+
+  createBrand(data:any): Observable<any>{
+    console.log(data,'createapi=>');
+    return this.http.post(`${this.postbrandurl}`,data);
+
+  }
+
 
   EditProduct(id: any, body: any) {
 

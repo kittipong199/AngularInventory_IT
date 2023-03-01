@@ -1,3 +1,4 @@
+import { MaterialModule } from './material/material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -30,6 +31,13 @@ import { PcService } from './service/pc.service';
 import { ReactiveFormsModule,NgForm,FormsModule } from '@angular/forms';
 import { ItemDetailsComponent } from './template/items/item-details/item-details.component';
 
+import { PcDetailsComponent } from './template/pc/pc-details/pc-details.component';
+import { LoginComponent } from './template/user/login/login.component';
+import { RegisterComponent } from './template/user/register/register.component';
+import { CookieService } from 'ngx-cookie-service';
+import { BrandComponent } from './template/items/brand/brand.component';
+import { TypeComponent } from './template/items/type/type.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +53,13 @@ import { ItemDetailsComponent } from './template/items/item-details/item-details
     CreateNewitemsComponent,
     CreateNewpcComponent,
     EditPcComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+
+    PcDetailsComponent,
+      LoginComponent,
+      RegisterComponent,
+      BrandComponent,
+      TypeComponent
 
   ],
   imports: [
@@ -53,15 +67,15 @@ import { ItemDetailsComponent } from './template/items/item-details/item-details
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    MatTableModule,
+
     ReactiveFormsModule,
     FormsModule,
+    MaterialModule
 
 
 
   ],
-  providers: [ItemsService,PcService],
+  providers: [ItemsService,PcService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

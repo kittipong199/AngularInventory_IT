@@ -1,0 +1,30 @@
+
+ <body class="text-center">
+
+  <main class="form-signin">
+  <form [formGroup]="form" id="registerForm" name="registerForm">
+    <img class="mb-4" src="assets/image/LogoAnalog.png" alt="" width="200" height="150">
+    <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="name@example.com">
+      <label for="floatingInput">Full Name</label>
+    </div>
+    <br>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="en" formControlName="en" >
+      <label for="floatingPassword">EN</label>
+    </div>
+
+    <div class="checkbox mb-3">
+
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="form.invalid" (click)="submitForm()">Register</button>
+
+  </form>
+  <p>Form value: {{ form.value | json }}</p>
+</main>
+
+
+
+</body>

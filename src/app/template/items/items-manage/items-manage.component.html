@@ -4,6 +4,12 @@
     <div class="me-auto p-2 bd-highlight">
       <button  type="button" class="btn btn-sm btn-outline-secondary"><a href="newitems" class="nav-link text-black">New Item +</a></button>
     </div>
+    <div class="me-auto p-2 bd-highlight">
+      <button  type="button" class="btn btn-sm btn-outline-secondary"><a href="newBrand" class="nav-link text-black">New Brand +</a></button>
+    </div>
+    <div class="me-auto p-2 bd-highlight">
+      <button  type="button" class="btn btn-sm btn-outline-secondary"><a href="newType" class="nav-link text-black">New Type +</a></button>
+    </div>
     <form class="d-flex l-3">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 
@@ -21,7 +27,7 @@
         <th scope="col">Brand</th>
         <th scope="col">Unit</th>
         <th scope="col">View</th>
-        <th scope="col">Edit</th>
+
         <!-- <th scope="col">Delete</th> -->
       </tr>
     </thead>
@@ -32,21 +38,17 @@
         <!--
           ส่วนนนี้ ครับ ที่ต้องส่ง id ออกไป
          -->
-        <td><a  routerLink="/itemdetails/{{i.type_id}}/{{i.brand_id}}">{{i.type_name}}</a></td>
+        <td>{{i.type_name}}</td>
 
         <!-- <td><a  routerLink="/itemdetails?typeId=${i.type_name}&barndId=${i.brand_name}">{{i.type_name}}</a></td> -->
         <td>{{i.brand_name}}</td>
         <td>{{i.counts}}</td>
         <td>
           <button  type="button" class="btn btn-sm btn-outline-secondary">
-            <a  class="nav-link text-black">ViewDetails</a>
+            <a  routerLink="/itemdetails/{{i.type_id}}/{{i.project_id}}"class="nav-link text-black">ViewDetails</a>
           </button>
         </td>
-        <td>
-          <button  type="button" class="btn btn-sm btn-outline-secondary">
-            <a href="newitems" class="nav-link text-black">Edit Item</a>
-          </button>
-        </td>
+
 
 
         <!-- <td>

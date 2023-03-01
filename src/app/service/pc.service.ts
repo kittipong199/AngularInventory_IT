@@ -15,20 +15,22 @@ export class PcService {
   constructor(private http: HttpClient, private router: Router) { }
 
    // connect to backend
-   getcpuUrl = 'http://127.0.0.1:3000/get/pc/cpu/details';
+   getcpuUrl = 'http://chbwapp001:5000/getpc/pc/cpu/details';
 
-   getmainboardUrl = 'http://127.0.0.1:3000/get/pc/mainboard/details';
+   getmainboardUrl = 'http://chbwapp001:5000/getpc/pc/mainboard/details';
 
-   getpowerdUrl = 'http://127.0.0.1:3000/get/pc/power/details';
-   getramdUrl = 'http://127.0.0.1:3000/get/pc/ram/details';
+   getpowerdUrl = 'http://chbwapp001:5000/getpc/pc/power/details';
+   getramdUrl = 'http://chbwapp001:5000/getpc/pc/ram/details';
 
-   getstoragedUrl = 'http://127.0.0.1:3000/get/pc/storage/details';
+   getstoragedUrl = 'http://chbwapp001:5000/getpc/pc/storage/details';
 
 
 
-   postNewPcUrl = 'http://127.0.0.1:3000/pc/create/new/pc';
+   postNewPcUrl = 'http://chbwapp001:5000/pc/create/new/pc';
 
-   getPcListUrl = 'http://127.0.0.1:3000/get/pc/pcList';
+   getPcListUrl = 'http://chbwapp001:5000/getpc/pc/all';
+
+   getPcDetail = 'http://chbwapp001:5000/getpc/pc/';
 
    getCpu(): Observable<any>{
     return this.http.get(`${this.getcpuUrl}`);
@@ -49,6 +51,10 @@ export class PcService {
 
   getStorage(): Observable<any>{
     return this.http.get(`${this.getstoragedUrl}`);
+  }
+
+  getPcDetails(pc_id:any): Observable<any>{
+    return this.http.get(`${this.getPcDetail}/${pc_id}`);
   }
 
   getPcList(): Observable<any>{

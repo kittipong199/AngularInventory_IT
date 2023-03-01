@@ -10,7 +10,7 @@
     <div class="card-header">Basic PC Details</div>
     <div class="card-body text-dark">
       <div class="input-group mb-4">
-        <label class="input-group-text" for="inputGroupSelect01">Project category:</label>
+        <label class="input-group-text" for="inputGroupSelect01">Project category:*</label>
         <select class="form-select " id="project_name"  formControlName="project_name">
           <option selected></option>
           <option  *ngFor = "let p of projects" [ngValue]="p.project_name">{{p.project_name}}</option>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="input-group mb-4">
-        <label class="input-group-text" for="inputGroupSelect01">Installation Status:</label>
+        <label class="input-group-text" for="inputGroupSelect01">Installation Status:*</label>
         <select class="form-select  " id="status_name" formControlName="status_name">
           <option selected></option>
           <option *ngFor = "let s of statusList" [ngValue]="s.status_name">{{s.status_name}}</option>
@@ -28,12 +28,12 @@
       </div>
 
       <div class="input-group mb-4">
-        <label class="input-group-text" for="inputGroupSelect01">PC's Hostname:</label>
+        <label class="input-group-text" for="inputGroupSelect01">PC's Hostname:*</label>
         <input type="text" class="form-control" id="hostname"  formControlName="pc_hostname" >
       </div>
 
       <div class="input-group mb-4">
-        <label class="input-group-text" for="inputGroupSelect01">PC's FixAsset:</label>
+        <label class="input-group-text" for="inputGroupSelect01">PC's FixAsset:*</label>
         <input type="text" class="form-control" id="fixAsset" formControlName="fixasset" >
       </div>
 
@@ -44,7 +44,7 @@
           <div class="form-check">
 
             <label class="form-check-label" for="autoSizingCheck2">
-                PC's Type:
+                PC's Type:*
             </label>
           </div>
         </div>
@@ -70,7 +70,7 @@
 
       <div class="row g-3">
         <div class="col-sm-6">
-          <label for="firstName" class="form-label">Serial Number</label>
+          <label for="firstName" class="form-label">Serial Number *</label>
           <input type="text" class="form-control" id="serial_no" name="serial_no"  formControlName="serial_no" >
           <div class="invalid-feedback">
 
@@ -78,7 +78,7 @@
         </div>
 
         <div class="col-sm-6">
-          <label for="lastName" class="form-label">Dongle ID</label>
+          <label for="lastName" class="form-label">Dongle ID*</label>
           <input type="text" class="form-control" formControlName="dongle_Id" >
           <div class="invalid-feedback">
 
@@ -88,7 +88,7 @@
 
 
         <div class="col-md-5">
-          <label for="cpu" class="form-label">CPU</label>
+          <label for="cpu" class="form-label">CPU*</label>
           <select class="form-select"  formControlName="cpu" >
             <option *ngFor= "let cp of cpu" [ngValue]="cp.serial_no">{{cp.brand_name}}/{{cp.item_details}}/{{cp.serial_no}}</option>
 
@@ -97,7 +97,7 @@
         </div>
 
         <div class="col-md-4">
-          <label for="mainboard" class="form-label">Motherboard</label>
+          <label for="mainboard" class="form-label">Motherboard*</label>
           <select class="form-select" id="mainboard" name="mainboard" formControlName="mainboard">
             <option *ngFor= "let main of mainboard" [ngValue]="main.serial_no">{{main.brand_name}} / {{main.item_details}} /{{main.serial_no}}</option>
 
@@ -106,7 +106,7 @@
         </div>
 
         <div class="col-md-3">
-          <label for="power" class="form-label">Power Supply</label>
+          <label for="power" class="form-label">Power Supply*</label>
           <select class="form-select" id="power"  name="power" formControlName="power" >
             <option *ngFor= "let p of power" [ngValue]="p.serial_no">{{p.brand_name}} / {{p.item_details}} / {{p.serial_no}}</option>
 
@@ -115,7 +115,7 @@
         </div>
 
         <div class="col-md-5">
-          <label for="ramSolt" class="form-label">RAM Slot</label>
+          <label for="ramSolt" class="form-label">RAM Slot*</label>
           <select class="form-select" id="ramSolt"  name="ramSolt" formControlName="ram_solt">
             <option *ngFor="let s of ramSolt" [ngValue]="s">{{ s }}</option>
 
@@ -124,7 +124,7 @@
         </div>
 
         <div class="col-md-4">
-          <label for="ram" class="form-label">RAM</label>
+          <label for="ram" class="form-label">RAM*</label>
           <select class="form-select" id="ram"  name="ram" formControlName="ram" >
             <option *ngFor= "let r of ram" [ngValue]="r.serial_no">{{r.brand_name}}/ {{r.item_details}}/{{r.serial_no}}</option>
 
@@ -133,7 +133,7 @@
         </div>
 
         <div class="col-md-3 ">
-          <label for="storage" class="form-label">Storage</label>
+          <label for="storage" class="form-label">Storage*</label>
           <select class="form-select" id="storage"  name="storage" formControlName="storage" >
             <option *ngFor= "let ssd of storage" [ngValue]="ssd.serial_no">{{ssd.brand_name}}/{{ssd.item_details}}/{{ssd.serial_no}}</option>
 
@@ -181,4 +181,4 @@
 
       </div>
 
-   <p>Form value: {{ form.value | json }}</p>
+   <!-- <p>Form value: {{ form.value | json }}</p> -->

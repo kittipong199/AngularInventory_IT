@@ -1,0 +1,91 @@
+<main class="container mt-3 row-md-9 ms-sm-auto row-lg-10 px-md-4">
+  <div class="d-flex justify-content-between bd-highlight mb-3 flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">PC Details</h1>
+
+    <form class="d-flex l-3">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+    </form>
+
+  </div>
+
+  <section style="background-color: #eee;">
+    <div class="container py-5">
+
+      <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-8 col-xl-8">
+          <div class="card text-black">
+
+            <div class="card-body" *ngFor = "let pcdetail of pcDetailModel">
+              <div class="text-center">
+                <h1 class="card-title ">PROJECT</h1>
+                <p class="text-muted mb-4 h4">{{pcdetail.project_name}}</p>
+              </div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">SerialNumber :</span><span class="h4 ">{{pcdetail.pc_hostname}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">Hostname :</span><span class="h4">{{pcdetail.serial_num}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">Fixasset :</span><span class="h4">{{pcdetail.pc_fixasset}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">TypePC :</span><span class="h4">{{pcdetail.is_aio}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">Dongle :</span><span class="h4">{{pcdetail.dongle_id}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">IO Card :</span><span class="h4">{{pcdetail.io_card}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">RAM Slot :</span><span class="h4">{{pcdetail.ram_slot}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">PC Size :</span><span class="h4">{{pcdetail.pc_size}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">LAN Card :</span><span class="h4">{{pcdetail.lan_card}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">CPU :</span><span class="h4">{{pcdetail.cpu_details}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">MainBoard :</span><span class="h4">{{pcdetail.mainboard_details}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">RAM :</span><span class="h4">{{pcdetail.ram_details}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">Storage :</span><span class="h4">{{pcdetail.storage_details}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">Power Supply :</span><span class="h4">{{pcdetail.powersupply_details}}</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="h3">Remerk :</span><span class="h4">{{pcdetail.pc_details}}</span>
+                </div>
+
+              </div>
+              <div class="d-flex justify-content-center total font-weight-bold mt-4">
+              <button  type="button" class="btn btn-sm btn-outline-secondary">
+                  <a href="newitems" class="nav-link text-black">Edit Item</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+      <!-- <h4>{{typeChild}}</h4> -->
+
+
+
+

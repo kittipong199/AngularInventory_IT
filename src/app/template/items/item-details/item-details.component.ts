@@ -1,4 +1,4 @@
-import { getTypeCount, ItemAll,getItmeDetails } from 'src/app/models/items.model';
+import { getTypeCount, ItemAll,getItemDetails } from 'src/app/models/items.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ItemsService } from 'src/app/service/items.service';
@@ -20,16 +20,23 @@ export class ItemDetailsComponent implements OnInit {
 
   typeId :any;
   brandId:any;
+  projectId:any;
   constructor(
     public ApiService:ItemsService ,private router:ActivatedRoute, private location: Location)
     {
-      this.typeId = router.snapshot.queryParamMap.get('type_id');
-      this.brandId = router.snapshot.queryParamMap.get('brand_id');
-      console.log(this.brandId = router.snapshot.queryParamMap.get('brand_id'));
+      // this.typeId = router.snapshot.queryParamMap.get('type_id');
+      // this.brandId = router.snapshot.queryParamMap.get('brand_id');
+      // console.log(this.brandId = router.snapshot.queryParamMap.get('brand_id'));
+
+      this.router.params.subscribe(p => {
+        this.typeId= p['typeId'];
+        this.projectId= p['projectId'];
+      });
+      console.log(this.projectId);
     }
 
   itemcount: getTypeCount[]= [];
-  ItemAllList: getItmeDetails[]=[];
+  ItemAllList: getItemDetails[]=[];
 
 
   getparamTypeId:any;
@@ -51,8 +58,8 @@ export class ItemDetailsComponent implements OnInit {
    getData(){
     // const type_id = Number(this.router.snapshot.paramMap.get('type_id'));
     // const brand_id = Number(this.router.snapshot.paramMap.get('brand_id'));
-    this.ApiService.getDetailsItme(this.typeId,this.brandId).subscribe((data: getItmeDetails[])=> {
-      console.log(data, "res ==>");
+    this.ApiService.getDetailsItme(this.typeId,this.projectId).subscribe((data: getItemDetails[])=> {
+      console.log(data, "res itme Detail==>");
       console.log(this.ItemAllList);
       this.ItemAllList = data;
     });

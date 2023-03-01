@@ -17,30 +17,30 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
+          <th scope="col">Project</th>
           <th scope="col">HostName</th>
 
           <th scope="col">Fix-access</th>
           <th scope="col">PC-SIZE</th>
-          <th scope="col">Edit</th>
+          <th scope="col">View Details</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let i of PcList">
+        <tr *ngFor = "let pc of PcList">
+          <td>{{pc.project_name}}</td>
+          <td>{{pc.pc_hostname}}</td>
+          <td>{{pc.pc_fixasset}}</td>
 
-          <td>{{i.pc_hostname}}</td>
-          <td>{{i.pc_fixasset}}</td>
-
-          <td>{{i.pc_size}}</td>
+          <td>{{pc.pc_size}}</td>
           <td>
-            <button  type="button" class="btn btn-sm btn-outline-secondary">
-              <a href="editpc" class="nav-link text-black">Edit</a>
+            <button  type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <a routerLink="/detailpc/{{pc.pc_id}}"   class="nav-link text-black">View</a>
             </button>
           </td>
         </tr>
 
 
       </tbody>
-
 
 
 

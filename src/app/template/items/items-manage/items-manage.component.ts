@@ -1,6 +1,6 @@
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { getTypeCount, ItemAll,getType,getItmeDetails } from 'src/app/models/items.model';
+import { getTypeCount, ItemAll,getType,getItemDetails } from 'src/app/models/items.model';
 import { Component, OnInit,Input,Output } from '@angular/core';
 
 import { ItemsService } from 'src/app/service/items.service';
@@ -19,16 +19,23 @@ import { ActivatedRoute } from '@angular/router';
 export class ItemsManageComponent implements OnInit {
   itmeDetails !: FormGroup;
 
-
+  en:any;
 
   constructor(
-    public ApiService:ItemsService,private router:ActivatedRoute, private formbuilder: FormBuilder) { }
+    public ApiService:ItemsService,private router:ActivatedRoute, private formbuilder: FormBuilder)
+    {
+
+      this.router.params.subscribe(p => {
+        this.en=p['en'];
+      });
+      console.log(this.en);
+    }
 
   itemcount: getTypeCount[]= [];
   type:getType[]=[];
   ItemAllList: ItemAll[]=[];
 
-  ItemDetails: getItmeDetails[]=[];
+  ItemDetails: getItemDetails[]=[];
 
   getparameid:any;
   type_id: any;
@@ -60,7 +67,7 @@ export class ItemsManageComponent implements OnInit {
 
 
    deleteID(id:number){
-    this.ApiService.Deleteitem(id).subscribe((data: getItmeDetails[])=>{
+    this.ApiService.Deleteitem(id).subscribe((data: getItemDetails[])=>{
         console.log(data, 'delete == >');
         this.ItemDetails = data;
     });

@@ -67,6 +67,7 @@ export class CreateNewitemsComponent implements OnInit {
     this.services.getType().subscribe((data: getType[])=> {
       console.log(data, "res ==> typelist : ");
       this.typelist = data;
+      
     });
   }
 
@@ -76,7 +77,7 @@ export class CreateNewitemsComponent implements OnInit {
       alert(JSON.stringify(this.form.value));
       this.services.createItem(this.form.value).subscribe((res)=>{
       console.log(res, 'res==>');
-      // หลังจาก ส่งdata แล้ว จะ reset ใน input ทั้งหมด 
+      // หลังจาก ส่งdata แล้ว จะ reset ใน input ทั้งหมด
       this.form.reset();
     });
 
